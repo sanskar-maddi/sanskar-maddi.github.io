@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page not found — Sanskar Maddi</title>
+    <meta name="description" content="This page could not be found. Return to Sanskar Maddi's research portfolio.">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#f5f3ed">
+    <!-- Inline styles keep this page readable at any missing, nested URL. -->
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 28px; background: #f5f3ed; color: #27352f; font: 16px/1.7 system-ui, sans-serif; }
+      main { width: min(100%, 580px); }
+      .eyebrow { color: #a3412a; font: 12px monospace; letter-spacing: .12em; }
+      h1 { font-size: clamp(36px, 7vw, 64px); line-height: 1.1; letter-spacing: -.05em; font-weight: 500; }
+      p { color: #59645d; }
+      a { color: #27352f; text-underline-offset: 5px; }
+      a:focus-visible { outline: 2px solid #a3412a; outline-offset: 6px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">SANSKAR MADDI / 404</p>
+      <h1>A little off course.</h1>
+      <p>This page may have moved, or the address may be incomplete.</p>
+      <p><a id="home-link" href="index.html">Return to my portfolio →</a></p>
+    </main>
+    <script>
+      // Packaging fills this from GitHub's Pages configuration.
+      const siteBase = "";
+      const preview = location.pathname.startsWith('/repository-preview/');
+      document.getElementById('home-link').href =
+        (preview ? '/repository-preview' : siteBase).replace(/\/$/, '') + '/index.html';
+    </script>
+  </body>
+</html>
