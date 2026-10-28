@@ -27,7 +27,8 @@ for (const [file, { html }] of documents) {
     if (/^(?:https?:|mailto:|data:)/.test(url)) continue;
     assert(!url.startsWith('/'), `${file}: root-relative URL breaks repository sites: ${url}`);
     const [relative, fragment] = url.split('#');
-    const target = relative ? path.resolve(path.dirname(file), decodeURIComponent(relative)) : file;
+    const pathname = relative.split('?')[0];
+    const target = pathname ? path.resolve(path.dirname(file), decodeURIComponent(pathname)) : file;
     const relativeTarget = path.relative(root, target);
     assert(!relativeTarget.startsWith('..') && !path.isAbsolute(relativeTarget), `${file}: link escapes site: ${url}`);
     await stat(target).catch(() => assert.fail(`${file}: missing target ${url}`));
